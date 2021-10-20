@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UserBlogs.Middlewares;
+using UserBlogs.Models;
+using UserBlogs.Models.Repositories;
 
 namespace UserBlogs
 {
@@ -24,6 +27,13 @@ namespace UserBlogs
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<UserBlogsContext>(options =>
+            options.UseSqlServer(connection), ServiceLifetime.Singleton);
+
+            services.AddSingleton<IUserRepository, UserRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -39,13 +49,9 @@ namespace UserBlogs
             }
 
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseMiddleware<LoggingMiddleware>();
 
             app.UseEndpoints(endpoints =>

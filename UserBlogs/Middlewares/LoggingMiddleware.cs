@@ -30,7 +30,7 @@ namespace UserBlogs.Middlewares
         }
 
         /// <summary>
-        /// Логируем в консль
+        /// Логирование в консоль
         /// </summary>
         private void LogConsole(HttpContext context)
         {
@@ -39,7 +39,7 @@ namespace UserBlogs.Middlewares
         }
 
         /// <summary>
-        /// Логиуем в файл
+        /// Логирование в файл
         /// </summary>
         private async Task LogFile(HttpContext context)
         {

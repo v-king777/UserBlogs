@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using UserBlogs.Models;
-using UserBlogs.Models.Db;
+using UserBlogs.Models.Entities;
 using UserBlogs.Models.Repositories;
 
 namespace UserBlogs.Controllers
@@ -32,7 +32,7 @@ namespace UserBlogs.Controllers
                 JoinDate = DateTime.Now
             };
 
-            await _repo.AddUser(newUser);
+            await _repo.Add(newUser);
 
             Console.WriteLine($"User with id {newUser.Id}, named {newUser.FirstName} " +
                 $"was successfully added on {newUser.JoinDate}");

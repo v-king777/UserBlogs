@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UserBlogs.Models.Db;
+using UserBlogs.Models.Entities;
 
 namespace UserBlogs.Models.Repositories
 {
@@ -16,7 +16,7 @@ namespace UserBlogs.Models.Repositories
             _context = context;
         }
 
-        public async Task AddUser(User user)
+        public async Task Add(User user)
         {
             var entry = _context.Entry(user);
 

@@ -46,6 +46,8 @@ namespace UserBlogs.Middlewares
             string logMessage = $"[{DateTime.Now}]: New request to http://" +
                 $"{context.Request.Host.Value + context.Request.Path}{Environment.NewLine}";
 
+            Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Logs"));
+
             string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Logs", "RequestLog.txt");
 
             await File.AppendAllTextAsync(logFilePath, logMessage);

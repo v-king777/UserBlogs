@@ -24,18 +24,18 @@ namespace UserBlogs.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var newUser = new User()
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Andrey",
-                LastName = "Petrov",
-                JoinDate = DateTime.Now
-            };
+            //var newUser = new User()
+            //{
+            //    Id = Guid.NewGuid(),
+            //    FirstName = "Andrey",
+            //    LastName = "Petrov",
+            //    JoinDate = DateTime.Now
+            //};
 
-            await _repo.Add(newUser);
+            //await _repo.AddUser(newUser);
 
-            Console.WriteLine($"User with id {newUser.Id}, named {newUser.FirstName} " +
-                $"was successfully added on {newUser.JoinDate}");
+            //Console.WriteLine($"User with id {newUser.Id}, named {newUser.FirstName} " +
+            //    $"was successfully added on {newUser.JoinDate}");
 
             return View();
         }

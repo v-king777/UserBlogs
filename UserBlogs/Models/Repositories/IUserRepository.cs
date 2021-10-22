@@ -8,6 +8,8 @@ namespace UserBlogs.Models.Repositories
 {
     public interface IUserRepository
     {
-        Task Add(User user);
+        Task AddUser(User user);
+
+        Task<User[]> GetUsers();
     }
 }

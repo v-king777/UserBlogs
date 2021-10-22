@@ -16,8 +16,11 @@ namespace UserBlogs.Models.Repositories
             _context = context;
         }
 
-        public async Task Add(User user)
+        public async Task AddUser(User user)
         {
+            user.Id = Guid.NewGuid();
+            user.JoinDate = DateTime.Now;
+
             var entry = _context.Entry(user);
 
             if (entry.State == EntityState.Detached)
@@ -26,6 +29,11 @@ namespace UserBlogs.Models.Repositories
             }
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<User[]> GetUsers()
+        {
+            return await _context.Users.ToArrayAsync();
         }
     }
 }

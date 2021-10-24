@@ -5,25 +5,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using UserBlogs.Models;
-using UserBlogs.Models.Repositories;
 
 namespace UserBlogs.Controllers
 {
-    public class LogsController : Controller
+    public class FeedbackController : Controller
     {
-        private readonly IRequestRepository _repo;
-
-        public LogsController(IRequestRepository repo)
+        [HttpGet]
+        public IActionResult Add()
         {
-            _repo = repo;
+            return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
+        /// <summary>
+        /// Метод для Ajax-запросов
+        /// </summary>
+        [HttpPost]
+        public IActionResult Add(Feedback feedback)
         {
-            var logs = await _repo.GetRequests();
-
-            return View(logs);
+            return StatusCode(200, $"{feedback.From}, спасибо за отзыв!");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

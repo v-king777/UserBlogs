@@ -34,6 +34,7 @@ namespace UserBlogs
             options.UseSqlServer(connection), ServiceLifetime.Singleton);
 
             services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<IRequestRepository, RequestRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

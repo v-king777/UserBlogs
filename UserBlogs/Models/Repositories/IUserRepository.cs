@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UserBlogs.Models.Entities;
+using UserBlogs.Models.Db;
 
 namespace UserBlogs.Models.Repositories
 {

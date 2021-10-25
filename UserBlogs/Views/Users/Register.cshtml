@@ -3,27 +3,25 @@
 }
 
 <div class="text-left">
-    <div>
-        @if (Model == null)
-        {
-            <h1 class="display-4" style="color: #0366d6">Добро пожаловать в наш блог!</h1>
+    @if (Model == null)
+    {
+        <h1 class="display-4" style="color: #0366d6">Добро пожаловать в наш блог!</h1>
+        <br>
+        <form method="post">
+            <div class="mb-3">
+                <label for="exampleInputText" class="form-label">Имя:</label>
+                <input type="text" class="form-control" id="exampleInputText" name="FirstName">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputText" class="form-label">Фамилия:</label>
+                <input type="text" class="form-control" id="exampleInputText" name="LastName">
+            </div>
             <br>
-            <form method="post">
-                <div class="mb-3">
-                    <label for="exampleInputText" class="form-label">Имя:</label>
-                    <input type="text" class="form-control" id="exampleInputText" name="FirstName">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputText" class="form-label">Фамилия:</label>
-                    <input type="text" class="form-control" id="exampleInputText" name="LastName">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Регистрация</button>
-            </form>
-        }
-        else
-        {
-            @await Html.PartialAsync("_Thanks")
-        }
-    </div>
+            <button type="submit" class="btn btn-primary">Регистрация</button>
+        </form>
+    }
+    else
+    {
+        @await Html.PartialAsync("_Thanks")
+    }
 </div>

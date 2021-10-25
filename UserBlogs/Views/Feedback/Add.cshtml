@@ -2,35 +2,6 @@
     ViewData["Title"] = "Add a Review";
 }
 
-<style>
-    table {
-        border-spacing: 0 15px;
-        align-self: center;
-    }
-
-    th {
-        background-color: #4287f5;
-        color: white;
-    }
-
-    th,
-    td {
-        width: 150px;
-        text-align: center;
-        border: none;
-        padding: 5px;
-    }
-
-    h2 {
-        color: #4287f5;
-    }
-
-    .submit-button {
-        position: absolute;
-        margin-left: 140px;
-    }
-</style>
-
 <script>
     function ProcessForm() {
 
@@ -63,10 +34,10 @@
             element.children[0].remove();
 
             // Создаем новый элемент
-            let paragraph = document.createElement("h5");
+            let paragraph = document.createElement("h4");
 
             // Добавляем ему стиль
-            paragraph.style = "text-align : center";
+            paragraph.style = "text-align: center";
 
             // Сохраняем в него сообщение сервера
             paragraph.innerText = serverMessage;
@@ -78,23 +49,19 @@
     }
 </script>
 
-<div id="main-block" class="text-center">
+<div class="text-left">
     <div>
-        <h3 style="text-align: left">Оставьте отзыв о проекте здесь</h3>
+        <h1 class="display-4" style="color: cornflowerblue">Оставьте отзыв о проекте</h1>
         <br>
-        <table>
-            <tr>
-                <td>Ваше имя</td>
-                <td><input type="text" name="From" /> </td>
-            </tr>
-            <tr>
-                <td>Ваш отзыв</td>
-                <td><input type="text" name="Text" /></td>
-            </tr>
-        </table>
-        <br>
-        <div class="submit-button">
-            <input type="submit" value="Отправить" onclick="ProcessForm()" />
+        <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Ваше имя:</label>
+            <input type="text" class="form-control" id="exampleInputText" name="From">
         </div>
+        <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Ваш отзыв:</label>
+            <input type="text" class="form-control" id="exampleInputText" name="Text">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" onclick="ProcessForm()">Отправить</button>
     </div>
 </div>

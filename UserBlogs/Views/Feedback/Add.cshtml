@@ -34,23 +34,23 @@
             element.children[0].remove();
 
             // Создаем новый элемент
-            let paragraph = document.createElement("h4");
+            let paragraph = document.createElement("p");
 
             // Добавляем ему стиль
             paragraph.style = "text-align: center";
+            paragraph.className = "display-6";
 
             // Сохраняем в него сообщение сервера
             paragraph.innerText = serverMessage;
 
             // Добавляем дочерные элементы на страницу
-            element.appendChild(document.createElement("br"));
             element.appendChild(paragraph);
         };
     }
 </script>
 
 <div class="text-left">
-    <h1 class="display-4" style="color: #0366d6">Оставьте отзыв о проекте</h1>
+    <h1 class="display-6" style="color: #0366d6; text-align: center">Оставьте отзыв о проекте</h1>
     <br>
     <div class="mb-3">
         <label for="exampleInputText" class="form-label">Ваше имя:</label>
